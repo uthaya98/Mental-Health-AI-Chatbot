@@ -1,0 +1,95 @@
+####################################
+# OS / Editor
+####################################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.log
+
+####################################
+# ENV / Secrets (CRITICAL)
+####################################
+.env
+**/.env
+
+####################################
+# Python / FastAPI Backend
+####################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+myvenv/
+.env/
+mental_health.db
+*.sqlite
+*.db
+
+####################################
+# Backend runtime artifacts
+####################################
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+
+####################################
+# Node / React Frontend
+####################################
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+####################################
+# Java / Spring Boot (API Gateway)
+####################################
+Mentalhealth-APIGateway/target/
+Mentalhealth-APIGateway/.classpath
+Mentalhealth-APIGateway/.project
+Mentalhealth-APIGateway/.settings/
+Mentalhealth-APIGateway/.idea/
+Mentalhealth-APIGateway/*.iml
+
+####################################
+# Maven
+####################################
+.mvn/wrapper/maven-wrapper.jar
+
+####################################
+# Dagster / ETL
+####################################
+.tmp_dagster_home_*
+dagster_storage/
+etl/__pycache__/
+
+####################################
+# Build / Dist
+####################################
+dist/
+out/
+
+####################################
+# Logs
+####################################
+logs/
+*.log
+
+####################################
+# Test coverage
+####################################
+coverage/
+
+# ===============================
+# Large ML / TF-IDF / Dataset files
+# ===============================
+etl/data/raw/*.csv
+etl/data/processed/*.csv
+etl/data/**/*.csv
