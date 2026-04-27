@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+sqlalchemy
+aiosqlite
+pydantic
+pydantic-settings
+email-validator
+openai
+pinecone
+pymongo
+pandas
+passlib[bcrypt]
+bcrypt
+python-jose
+PyJWT

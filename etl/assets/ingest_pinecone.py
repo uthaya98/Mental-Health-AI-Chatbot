@@ -12,13 +12,14 @@ from openai import OpenAI
 # ENVIRONMENT CONFIG (ETL SAFE)
 # =========================================================
 
-OPENAI_API_KEY= "OPENAI-API-KEY"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
 # Pinecone
-PINECONE_API_KEY="PINECONE-API-KEY"
-PINECONE_INDEX="mental-health-data"
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_INDEX = os.getenv("PINECONE_INDEX", "mental-health-data")
 
 # MongoDB
-MONGO_URI="MONGO-DB-DETAILS"
+MONGO_URI = os.getenv("MONGO_URI")
 
 
 if not OPENAI_API_KEY or not PINECONE_API_KEY:

@@ -13,7 +13,7 @@ from typing import List, Dict
 
 from app.services.embeddings import embed_text
 from app.services.pinecone_client import rag_index, data_index
-from app.db.mongo import db
+from app.db.mongo import get_database
 
 logger = logging.getLogger("mental-health-ai")
 
@@ -39,6 +39,11 @@ def retrieve_signal_docs(
     """
 
     try:
+        database = get_database()
+        if database is None:
+            logger.warning("[RAG] MongoDB unavailable; skipping signal-doc retrieval.")
+            return []
+
         query_vector = embed_text(message)
 
         results = data_index.query(
@@ -60,7 +65,7 @@ def retrieve_signal_docs(
             if not doc_id:
                 continue
 
-            doc = db.mental_health_facts.find_one({"_id": doc_id})
+            doc = database.mental_health_facts.find_one({"_id": doc_id})
             if not doc:
                 continue
 

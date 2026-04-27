@@ -18,7 +18,7 @@ router = APIRouter(prefix="/calendar", tags=["calendar"])
 # =========================================================
 @router.get("/month", response_model=list[CalendarDayResponse])
 async def get_month_calendar(
-    year: int = Query(..., example=2025),
+    year: int = Query(..., examples=[2025]),
     month: int = Query(..., ge=1, le=12),
     db: AsyncSession = Depends(get_db),
     user=Depends(get_current_user),
@@ -55,8 +55,8 @@ async def get_month_calendar(
 # =========================================================
 @router.get("/weekly-trend", response_model=list[WeeklyEmotionResponse])
 async def get_weekly_trend(
-    start_date: date = Query(..., example="2025-12-01"),
-    end_date: date = Query(..., example="2025-12-07"),
+    start_date: date = Query(..., examples=["2025-12-01"]),
+    end_date: date = Query(..., examples=["2025-12-07"]),
     db: AsyncSession = Depends(get_db),
     user=Depends(get_current_user),
 ):
